@@ -14,8 +14,10 @@ export class ToggleDarkModeComponent {
     this.darkMode = !this.darkMode;
     if (this.darkMode) {
       document.documentElement.classList.add('dark');
+      document.body.classList.toggle('dark-theme');
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.classList.toggle('dark-theme');
     }
   }
 }

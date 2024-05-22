@@ -1,6 +1,5 @@
 export interface LoginResponse {
-  name: string;
-  token: string;
+  authToken: string;
 }
 
 export interface LoginRequest {

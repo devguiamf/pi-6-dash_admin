@@ -12,4 +12,12 @@ import {ListClientsComponent} from "../components/list-clients/list-clients.comp
 })
 export class ClientsPageComponent {
 
+
+  confirmDialog() {
+
+  }
+
+  closeDialog() {
+
+  }
 }

@@ -12,6 +12,7 @@ import {LoginResponse} from "./login.interface";
     ReactiveFormsModule,
     ToggleDarkModeComponent,
   ],
+  providers: [LoginService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -21,7 +22,7 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    // private loginService: LoginService
+    private loginService: LoginService
   ) {
     this.forms = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,21 +40,20 @@ export class LoginComponent {
 
   async sendCredentials() {
     const credentials = this.forms.value;
-    // this.loginService.login(credentials).subscribe({
-    //   next: async (response: LoginResponse) => {
-    //     localStorage.setItem('token', response.token);
-    //     await this.router.navigate(['/home-page'])
-    //   },
-    //   error: (error) => {
-    //     if(error.status === 401){
-    //       alert('Usuário ou senha inválidos')
-    //     }
-    //     if(error.status === 500) {
-    //       alert('Erro no servidor')
-    //     }
-    //   }
-    // });
-
+    this.loginService.login(credentials).subscribe({
+      next: async (response: LoginResponse) => {
+        localStorage.setItem('authToken', response.authToken);
+        await this.router.navigate(['/home-page'])
+      },
+      error: (error) => {
+        if(error.status === 401){
+          alert('Usuário ou senha inválidos')
+        }
+        if(error.status === 500) {
+          alert('Erro no servidor')
+        }
+      }
+    });
   }
 
   async goToSingUp(){

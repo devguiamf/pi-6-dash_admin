@@ -1,0 +1,35 @@
+<div class="p-6 bg-gray-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  @if(user_looged_info && !Array.isArray(user_looged_info)){
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-gray-500 dark:fill-white mr-2">
+          <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+        </svg>
+        <h5 class="font-bold tracking-tight text-gray-900 dark:text-white">Informações do usuário</h5>
+      </div>
+    </div>
+
+    <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700">
+      <div class="p-5 grid grid-cols-3 gap-5">
+        <p class="font-bold text-gray-900 dark:text-white">Nome: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.name}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Email: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.email}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Cargo: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.role}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Estado civil: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.maritalStatus}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Endereço: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.address.address}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Cidade: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.address.city}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Estado: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.address.state}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">CEP: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.address.cep}}</span></p>
+        <p class="font-bold text-gray-900 dark:text-white">Numero: <span class="text-gray-700 dark:text-gray-300">{{user_looged_info.address.number}}</span></p>
+      </div>
+    </div>
+
+  } @else {
+   <div class="flex items-center justify-center">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-gray-500 dark:fill-white">
+       <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+     </svg>
+     <h5 class="text-center font-bold tracking-tight text-gray-900 dark:text-white">{{error_logged_user_info_message}}</h5>
+    </div>
+  }
+
+</div>

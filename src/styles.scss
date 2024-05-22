@@ -1,25 +1,12 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $test-angular-primary: mat.define-palette(mat.$indigo-palette);
 $test-angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-// The warn palette is optional (defaults to red).
+
 $test-angular-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $test-angular-theme: mat.define-light-theme((
   color: (
     primary: $test-angular-primary,
@@ -30,12 +17,8 @@ $test-angular-theme: mat.define-light-theme((
   density: 0
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include mat.all-component-themes($test-angular-theme);
 
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,3 +78,44 @@ html{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+:root {
+  --primary: #FFFFFF;
+  --primary-ligth: #F9FAFB;
+  --menu: #E5E7EB;
+  --body: #fff;
+  --text: #000;
+}
+
+:root .dark-theme {
+  --primary: #0F172A;
+  --primary-ligth: #374151;
+  --menu: #020617;
+  --text: #fff;
+}
+
+.error-snackbar{
+  --background-color: #f44336;
+  color: white;
+}
+
+.success-snackbar{
+  background-color: #4CAF50;
+}
